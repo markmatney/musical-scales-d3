@@ -1,0 +1,17 @@
+{
+  "name": "musical-scales-d3",
+  "version": "0.1.0",
+  "description": "Visualize intervallic relationships within musical scales.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Mark Allen Matney, Jr.",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^3.5.16",
+    "express": "^4.13.4",
+    "semitones": "^1.0.1",
+    "tonal": "^0.32.1"
+  }
+}
