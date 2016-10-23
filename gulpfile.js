@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
     del = require('del'),
-    concat = require('gulp-concat'),
     webpack = require('gulp-webpack'),
     connect = require('gulp-connect');
 
