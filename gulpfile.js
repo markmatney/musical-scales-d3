@@ -11,16 +11,7 @@ gulp.task('clean', function() {
 
 gulp.task('webpack', function() {
     return gulp.src('./src/musical-scales-d3.js')
-        .pipe(webpack({
-            module: {
-                loaders: [
-                    { test: /\.json$/, loader: 'json' }
-                ]
-            },
-            output: {
-                filename: 'musical-scales-d3.bundle.js'
-            }
-        }))
+        .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('dist/'));
 });
 
