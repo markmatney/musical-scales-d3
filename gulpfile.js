@@ -5,21 +5,27 @@ var gulp = require('gulp'),
 
 gulp.task('clean', function() {
     return del([
-        'dist/'
+        './dist/'
     ]);
 });
 
-gulp.task('webpack', function() {
+gulp.task('webpack', ['clean'], function() {
     return gulp.src('./src/musical-scales-d3.js')
         .pipe(webpack(require('./webpack.config.js')))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('connect', function() {
+gulp.task('build', ['clean', 'webpack']);
+
+gulp.task('server:start', ['build'], function() {
     connect.server({
         root: './',
         port: 5150
     });
 });
 
-gulp.task('default', ['clean', 'webpack', 'connect']);
+gulp.task('watch', ['server:start'], function() {
+    gulp.watch(['./src/**', 'index.html'], ['build']);
+});
+
+gulp.task('default', ['build', 'server:start', 'watch']);
