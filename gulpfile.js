@@ -20,7 +20,7 @@ gulp.task('build', ['clean', 'webpack']);
 gulp.task('server:start', ['build'], function() {
     connect.server({
         root: './',
-        port: 5150
+        port: process.env.PORT || 5150
     });
 });
 
