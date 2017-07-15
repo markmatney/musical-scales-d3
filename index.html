@@ -2,20 +2,37 @@
 <html>
   <head>
     <title>Visualize intervallic relationships within musical scales</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Mark Allen Matney, Jr.">
     <meta name="description" content="visualize intervallic relationships within musical scales">
+    <link rel="stylesheet" href="dist/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/styles.css">
   </head>
   <body>
-    <div id="scale">
-      <svg width="800" height="100"></svg>
-      <br>
-      <select></select>
+    <div class="container">
+      <h1 class="mt-5">Visualizing Music Theory</h1>
+      <p class="lead mb-5">Scales, chords, and their intervals</p>
+      <p>NOTE: nothing said here is meant to be taken out of the context of Western music.</p>
+      <p>Sounds have many properties: timbre, fundamental frequency (pitch), duration, and so on. Of these, varying pitch is what gives the listener a sense of a scale or chord being played. Matters of pitch are some of the most important in the study of music.</p>
+      <p>When first learning about scales and chords, it isn't always clear how the two are related. When "playing scales" in music, notes are sounded out in succession, one after the other. On the other hand, when "playing chords", notes sound out in parallel, all at the same time. In other words, scales are melodic structures, whereas chords are harmonic structures. For a musician, thinking about how these two concepts are related can be extremely helpful.</p>
+      <p>One way to visualize a scale is to arrange notes in a linear fashion, along an axis. We can scale (in the mathematical sense) that axis any number of ways, but the two that make the most sense are logarithmic in frequency, and linear in scale degree (i.e., two different ways to talk about pitch).</p>
+      <div id="scale" class="mt-5 mb-5">
+        <svg width="100%" height="100"></svg>
+        <br>
+        <select></select>
+      </div>
+      <p class="mt4">The second example breaks apart the selected chord into it's constituent intervals. This assumes first inversion.</p>
+      <div id="chord" class="mt-5 mb-5">
+        <svg width="100%" height="480"></svg>
+        <br>
+        <select></select>
+      </div>
+      <p>I'm going to say more about all this eventually, but that's all for now!</p>
     </div>
-    <div id="chord">
-      <svg width="800" height="480"></svg>
-      <br>
-      <select></select>
-    </div>
+    <script src="dist/assets/jquery/jquery.min.js"></script>
+    <script src="dist/assets/tether/js/tether.min.js"></script>
+    <script src="dist/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="dist/musical-scales-d3.bundle.js"></script>
   </body>
 </html>

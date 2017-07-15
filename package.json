@@ -9,6 +9,7 @@
   "author": "Mark Allen Matney, Jr.",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "d3-scale": "^1.0.3",
     "d3-selection": "^1.0.2",
     "d3-transition": "^1.0.3",

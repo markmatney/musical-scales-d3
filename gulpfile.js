@@ -9,13 +9,24 @@ gulp.task('clean', function() {
     ]);
 });
 
+gulp.task('assets', ['clean'], function() {
+    gulp.src('node_modules/tether/dist/**/*')
+        .pipe(gulp.dest('dist/assets/tether/'));
+    gulp.src('node_modules/bootstrap/dist/**/*')
+        .pipe(gulp.dest('dist/assets/bootstrap/'));
+    gulp.src('node_modules/jquery/dist/**/*')
+        .pipe(gulp.dest('dist/assets/jquery/'));
+    gulp.src('./src/*.css')
+        .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('webpack', ['clean'], function() {
     return gulp.src('./src/musical-scales-d3.js')
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('build', ['clean', 'webpack']);
+gulp.task('build', ['clean', 'assets', 'webpack']);
 
 gulp.task('server:start', ['build'], function() {
     connect.server({

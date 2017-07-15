@@ -11,7 +11,7 @@ var d3 = require('./d3'),
 
 // map scale degree semitones to pixel offset
 var scaleRoot = d3.select('#scale').select('svg'),
-    scaleWidth = scaleRoot.attr('width'),
+    scaleWidth = scaleRoot.node().getBoundingClientRect().width,
     scaleHeight = scaleRoot.attr('height'),
     scaleXScale = d3.scaleLinear()
         .domain([0,12])
@@ -148,13 +148,14 @@ d3.select('#chord').select('select')
     .text(function(d) { return d;});
 
 // labels
-chromaticScale = ['R', 'b2', '2', 'b3', '3', '4', 'b5', '5', 'b6', '6', 'b7', '7'];
+flat = '&#9837;'
+chromaticScale = ['R', flat + '2', '2', flat + '3', '3', '4', flat + '5', '5', flat + '6', '6', flat + '7', '7', 'R'];
 scaleRoot.selectAll('text').data(chromaticScale).enter()
   .append('text')
     .attr('y', scaleHeight - 10)
     .attr('text-anchor', 'middle')
     .attr('x', function(d, i) { return scaleXScale(i); })
-    .text(function(d) { return d; });
+    .html(function(d) { return d; });
 
 // start off displaying the major scale
 drawScaleChart(scale('major', false).map(semitones));

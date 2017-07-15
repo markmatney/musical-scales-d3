@@ -1,0 +1,10 @@
+body {
+//  padding-top: 1.5rem;
+//  padding-bottom: 1.5rem;
+}
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
